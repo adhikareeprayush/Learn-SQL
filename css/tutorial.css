@@ -6,3 +6,43 @@
   --lighter-color: #5b5271;
   --lightest-color: #6e5774;
 }
+
+.rightnav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px;
+  width: 100%;
+  max-width: fit-content;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  cursor: default;
+  color: aliceblue;
+}
+
+.navigator {
+  display: flex;
+  flex-direction: column;
+}
+
+.navigator a {
+  text-decoration: none;
+  color: aliceblue;
+  margin: 10px;
+  transition: all 0.3s ease-in-out;
+  font-size: 15px;
+}
+
+.navigator a:hover {
+  color: var(--darkest-color);
+}
+
+.navigator a.active {
+  color: var(--darkest-color);
+}
+
+.content p {
+  font-size: 16px !important;
+}
