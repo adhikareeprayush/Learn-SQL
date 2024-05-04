@@ -1,11 +1,79 @@
+:root {
+  --darkest-color: #231c35;
+  --dark-color: #242039;
+  --dark-light-color: #2a2b47;
+  --light-color: #484564;
+  --lighter-color: #5b5271;
+  --lightest-color: #6e5774;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  min-width: 100%;
+  min-height: 100vh;
+}
+
 body {
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: start;
+  background: linear-gradient(
+    90deg,
+    var(--darkest-color) 0%,
+    var(--lightest-color) 100%
+  );
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.sidenav {
+  width: 250px;
+  z-index: 1;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(
+    90deg,
+    var(--darkest-color) 0%,
+    var(--lightest-color) 100%
+  );
+  overflow-x: hidden;
+  padding-top: 20px;
+
+  color: white;
+  border-radius: 20px;
+  height: 95%;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+}
+
+.logo {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.sidenav .logo .header {
+  color: white;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+}
+
+.sidenav .logo p {
+  font-size: 12px;
+  font-weight: 300;
+  margin-top: 5px;
 }
