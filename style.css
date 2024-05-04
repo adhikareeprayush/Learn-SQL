@@ -136,7 +136,7 @@ p {
   padding: 20px;
   margin: 20px;
   width: 100%;
-  max-width: 400px;
+  max-width: 350px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -146,4 +146,82 @@ p {
 
 .card h2 {
   margin-bottom: 20px;
+  font-size: 24px !important;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card ul li {
+  margin-bottom: 10px;
+  color: white;
+}
+
+/* add glowing effect to card when hover */
+.card:hover {
+  animation: glow 1s infinite;
+}
+
+.syllabus {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Shake the h2 element when hovering over the card */
+.card:hover h2 {
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Give each card a unique color based on the index of the card. Use the root colors. */
+.card:nth-child(1) {
+  background: var(--dark-color);
+}
+
+.card:nth-child(2) {
+  background: var(--dark-light-color);
+}
+
+.card:nth-child(3) {
+  background: var(--light-color);
+}
+
+.card:nth-child(4) {
+  background: var(--lighter-color);
+}
+
+.card:nth-child(5) {
+  background: var(--lightest-color);
 }
