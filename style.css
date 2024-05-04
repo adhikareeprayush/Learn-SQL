@@ -266,3 +266,45 @@ p {
 .card:nth-child(15) {
   background: var(--lightest-color);
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--light-color);
+  border-radius: 10px;
+}
+
+.sidenav .topics {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidenav .topics a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 10px 20px;
+  border-radius: 20px;
+  transition: 0.3s;
+  margin-bottom: 5px;
+}
+
+.sidenav .topics a:hover {
+  background: var(--light-color);
+  color: white;
+}
+
+.sidenav .topics a.active {
+  background: var(--light-color);
+  color: white;
+}
