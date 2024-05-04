@@ -142,6 +142,7 @@ p {
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  cursor: default;
 }
 
 .card h2 {
@@ -223,5 +224,45 @@ p {
 }
 
 .card:nth-child(5) {
+  background: var(--lightest-color);
+}
+
+.card:nth-child(6) {
+  background: var(--dark-color);
+}
+
+.card:nth-child(7) {
+  background: var(--dark-light-color);
+}
+
+.card:nth-child(8) {
+  background: var(--light-color);
+}
+
+.card:nth-child(9) {
+  background: var(--lighter-color);
+}
+
+.card:nth-child(10) {
+  background: var(--lightest-color);
+}
+
+.card:nth-child(11) {
+  background: var(--dark-color);
+}
+
+.card:nth-child(12) {
+  background: var(--dark-light-color);
+}
+
+.card:nth-child(13) {
+  background: var(--light-color);
+}
+
+.card:nth-child(14) {
+  background: var(--lighter-color);
+}
+
+.card:nth-child(15) {
   background: var(--lightest-color);
 }
