@@ -18,6 +18,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Show the first topic by default
     showTopic(0);
 });
