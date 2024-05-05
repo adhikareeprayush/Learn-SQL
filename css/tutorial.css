@@ -82,3 +82,12 @@
   justify-content: center;
   gap: 20px;
 }
+
+.code {
+  background-color: #2a2b47;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  font-size: 15px;
+  font-family: "Courier New", Courier, monospace;
+}
