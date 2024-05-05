@@ -199,3 +199,33 @@ p {
   justify-content: center;
   flex-direction: column;
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table,
+th,
+td {
+  border: 1px solid white;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background: var(--light-color);
+}
+
+td {
+  background: var(--lighter-color);
+}
+
+th {
+  color: white;
+}

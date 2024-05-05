@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+
+:root {
+  --darkest-color: #231c35;
+  --dark-color: #242039;
+  --dark-light-color: #2a2b47;
+  --light-color: #484564;
+  --lighter-color: #5b5271;
+  --lightest-color: #6e5774;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  background: linear-gradient(
+    90deg,
+    var(--darkest-color) 0%,
+    var(--lightest-color) 100%
+  );
+  min-width: 100%;
+  min-height: 100%;
+  font-family: "Josefin Sans", sans-serif;
+  color: white;
+}
+
+/* table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th {
+  background-color: var(--dark-light-color);
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 10px;
+  text-align: left;
+}
+
+td {
+  background-color: var(--dark-color);
+  color: white;
+  font-size: 14px;
+  font-weight: 300;
+  padding: 10px;
+}
+
+tr:nth-child(even) {
+  background-color: var(--dark-light-color);
+}
+
+h4 {
+  color: white;
+  margin: 0px;
+}
+
+.example {
+  width: 80%;
+  margin-top: 100px;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+/* Even odd styling in tables */
+tr:nth-child(even) {
+  background-color: var(--dark-light-color);
+}
+
+tr:nth-child(odd) {
+  background-color: var(--dark-color);
+}
