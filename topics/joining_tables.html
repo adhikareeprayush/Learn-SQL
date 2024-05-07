@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/tutorial.css">
+    <link rel="stylesheet" href="../css/default.css">
+    <title>Learn SQL | Filtering Data</title>
+</head>
+
+<body>
+    <div class="sidenav">
+        <div class="logo">
+            <a href="../index.html" class="header">Learn SQL</a>
+            <p>With <a href="#">Me😊</a></p>
+        </div>
+        <div class="topics">
+            <a href="database.html" class="topic">Database</a>
+            <a href="basic_sql_queries.html" class="topic">Basic SQL Queries</a>
+            <a href="#" class="topic ">Filtering Data</a>
+            <a href="working_with_functions.html" class="topic active">Working with Functions</a>
+            <a href="joining_tables.html" class="topic">Joining Tables</a>
+            <a href="sub_queries.html" class="topic">Subqueries</a>
+            <a href="modifying_data.html" class="topic">Modifying Data</a>
+            <a href="advanced_queries.html" class="topic">Advanced Queries</a>
+            <a href="transactions_and_locking.html" class="topic">Transactions and Locking</a>
+            <a href="indexing_and_optimization.html" class="topic">Indexing and Optimization</a>
+            <a href="sql_best_practices.html" class="topic">SQL Best Practices</a>
+        </div>
+        <div class="social-icons">
+            <!-- linkedin -->
+            <a href="https://www.linkedin.com/in/prayushadhikari/" class="social-link">
+                <i class="bi bi-linkedin"></i>
+            </a>
+            <!-- github -->
+            <a href="https://www.github.com/adhikareeprayush" class="social-link">
+                <i class="bi bi-github"></i>
+            </a>
+            <!-- twitter -->
+            <a href="https://www.twitter.com/prayushadhikari" class="social-link">
+                <i class="bi bi-twitter"></i>
+            </a>
+            <!-- instagram -->
+            <a href="https://www.instagram.com/prayushadhikari" class="social-link">
+                <i class="bi bi-instagram"></i>
+            </a>
+
+
+        </div>
+
+    </div>
+
+    <div class="content">
+        <div class="subtopics">
+            <div id="inner_join" class="id_topic">
+                <h2 class="title">INNER JOIN</h2>
+                <p class="definition
+                ">The INNER JOIN keyword selects records that have matching values in both tables.
+                    The INNER JOIN keyword is equal to JOIN. </p>
+                <!-- Tables -->
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>OrderID</th>
+                            <th>CustomerID</th>
+                            <th>OrderDate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10308</td>
+                            <td>2</td>
+                            <td>1996-09-18</td>
+                        </tr>
+                        <tr>
+                            <td>10309</td>
+                            <td>37</td>
+                            <td>1996-09-19</td>
+                        </tr>
+                        <tr>
+                            <td>10310</td>
+                            <td>77</td>
+                            <td>1996-09-20</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>CustomerID</th>
+                            <th>CustomerName</th>
+                            <th>ContactName</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Alfreds Futterkiste</td>
+                            <td>Maria Anders</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Centro comercial Moctezuma</td>
+                            <td>Francisco Chang</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Ernst Handel</td>
+                            <td>Roland Mendel</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="mt-3">INNER JOIN Example</h3>
+
+                <div class="code">
+                    <p>SELECT Orders.OrderID, Customers.CustomerName</p>
+                    <p>FROM Orders</p>
+                    <p>INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;</p>
+                </div>
+
+                <!-- Result of the query -->
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>OrderID</th>
+                            <th>CustomerName</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10308</td>
+                            <td>Centro comercial Moctezuma</td>
+                        </tr>
+                        <tr>
+                            <td>10309</td>
+                            <td>Ernst Handel</td>
+                        </tr>
+                        <tr>
+                            <td>10310</td>
+                            <td>Island Trading</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="note mt-3">Note that the INNER JOIN keyword returns all records when there is at least one
+                    match in
+                    both tables.</p>
+
+
+
+
+
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="right-content-navigator rightnav">
+        <div class="navigator">
+            <a href="#" class="nav-link active">INNER JOIN</a>
+            <a href="#" class="nav-link">LEFT JOIN</a>
+            <a href="#" class="nav-link">RIGHT JOIN</a>
+            <a href="#" class="nav-link">FULL JOIN</a>
+        </div>
+    </div>
+
+
+    <script src="../js/script.js"></script>
+
+</body>
+
+</html>
