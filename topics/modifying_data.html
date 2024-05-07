@@ -228,19 +228,92 @@
 
 
             </div>
-        </div>
 
+            <div id="delete_statement" class="id_topic">
+                <div class="question">
+                    <h2>DELETE Statement</h2>
+                    <p>
+                        The DELETE statement is used to delete existing records in a table.
+                        The DELETE statement is used to specify the table name where data will be deleted.
+                    </p>
 
-        <div class="right-content-navigator rightnav">
-            <div class="navigator">
-                <a href="#" class="nav-link active">INSERT Statement</a>
-                <a href="#" class="nav-link">UPDATE Statement</a>
-                <a href="#" class="nav-link">DELETE Statement</a>
+                    <p class="mt-3">Syntax</p>
+                    <div class="code">
+                        <p>
+                            DELETE FROM table_name
+                        </p>
+                        <p>
+                            WHERE condition;
+                        </p>
+                    </div>
+
+                    <p class="mt-3">Example</p>
+                    <!-- table -->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>name</th>
+                                <th>age</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>John</td>
+                                <td>25</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Smith</td>
+                                <td>30</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- query -->
+                    <div class="code mt-3">
+                        <p>
+                            DELETE FROM employees
+                        </p>
+                        <p>
+                            WHERE name = 'John';
+                        </p>
+                    </div>
+
+                    <!-- Result of the query -->
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>name</th>
+                                <th>age</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2</td>
+                                <td>Smith</td>
+                                <td>30</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
-        </div>
 
 
-        <script src="../js/script.js"></script>
+            <div class="right-content-navigator rightnav">
+                <div class="navigator">
+                    <a href="#" class="nav-link active">INSERT Statement</a>
+                    <a href="#" class="nav-link">UPDATE Statement</a>
+                    <a href="#" class="nav-link">DELETE Statement</a>
+                </div>
+            </div>
+
+
+            <script src="../js/script.js"></script>
 
 </body>
 
