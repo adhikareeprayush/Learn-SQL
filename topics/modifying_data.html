@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/tutorial.css">
+    <link rel="stylesheet" href="../css/default.css">
+    <title>Learn SQL | Filtering Data</title>
+</head>
+
+<body>
+    <div class="sidenav">
+        <div class="logo">
+            <a href="../index.html" class="header">Learn SQL</a>
+            <p>With <a href="#">Me😊</a></p>
+        </div>
+        <div class="topics">
+            <a href="database.html" class="topic">Database</a>
+            <a href="basic_sql_queries.html" class="topic">Basic SQL Queries</a>
+            <a href="#" class="topic ">Filtering Data</a>
+            <a href="working_with_functions.html" class="topic">Working with Functions</a>
+            <a href="joining_tables.html" class="topic">Joining Tables</a>
+            <a href="sub_queries.html" class="topic">Subqueries</a>
+            <a href="modifying_data.html" class="topic active">Modifying Data</a>
+            <a href="advanced_queries.html" class="topic">Advanced Queries</a>
+            <a href="transactions_and_locking.html" class="topic">Transactions and Locking</a>
+            <a href="indexing_and_optimization.html" class="topic">Indexing and Optimization</a>
+            <a href="sql_best_practices.html" class="topic">SQL Best Practices</a>
+        </div>
+        <div class="social-icons">
+            <!-- linkedin -->
+            <a href="https://www.linkedin.com/in/prayushadhikari/" class="social-link">
+                <i class="bi bi-linkedin"></i>
+            </a>
+            <!-- github -->
+            <a href="https://www.github.com/adhikareeprayush" class="social-link">
+                <i class="bi bi-github"></i>
+            </a>
+            <!-- twitter -->
+            <a href="https://www.twitter.com/prayushadhikari" class="social-link">
+                <i class="bi bi-twitter"></i>
+            </a>
+            <!-- instagram -->
+            <a href="https://www.instagram.com/prayushadhikari" class="social-link">
+                <i class="bi bi-instagram"></i>
+            </a>
+
+
+        </div>
+
+    </div>
+
+    <div class="content">
+        <div class="subtopics">
+            <div id="insert_statement" class="id_topic">
+                <div class="question">
+                    <h2>INSERT Statement</h2>
+                    <p>
+                        The INSERT statement is used to insert new records in a table.
+                        The INSERT INTO statement is used to specify the table name where data will be inserted.
+                    </p>
+
+                    <p class="mt-3">Syntax</p>
+                    <div class="code">
+                        <p>
+                            INSERT INTO table_name (column1, column2, column3, ...)
+                        </p>
+                        <p>
+                            VALUES (value1, value2, value3, ...);
+                        </p>
+                    </div>
+
+                    <p class="mt-3">Example</p>
+                    <!-- table -->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>name</th>
+                                <th>age</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>John</td>
+                                <td>25</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Smith</td>
+                                <td>30</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- query -->
+                    <div class="code mt-3">
+                        <p>
+                            INSERT INTO employees (id, name, age)
+                        </p>
+                        <p>
+                            VALUES (3, 'Doe', 35);
+                        </p>
+                    </div>
+
+                    <!-- Result of the query -->
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>name</th>
+                                <th>age</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>John</td>
+                                <td>25</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Smith</td>
+                                <td>30</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Doe</td>
+                                <td>35</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="right-content-navigator rightnav">
+        <div class="navigator">
+            <a href="#" class="nav-link active">INSERT Statement</a>
+            <a href="#" class="nav-link">UPDATE Statement</a>
+            <a href="#" class="nav-link">DELETE Statement</a>
+        </div>
+    </div>
+
+
+    <script src="../js/script.js"></script>
+
+</body>
+
+</html>
