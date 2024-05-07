@@ -260,6 +260,101 @@
 
             </div>
 
+            <div id="right_join" class="id_topic">
+                <h2 class="title">RIGHT JOIN</h2>
+                <p class="definition
+                ">The RIGHT JOIN keyword returns all records from the right table (table2), and the matched records
+                    from
+                    the left table (table1). The result is NULL from the left side when there is no match.</p>
+                <!-- Tables -->
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>OrderID</th>
+                            <th>CustomerID</th>
+                            <th>OrderDate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10308</td>
+                            <td>2</td>
+                            <td>1996-09-18</td>
+                        </tr>
+                        <tr>
+                            <td>10309</td>
+                            <td>37</td>
+                            <td>1996-09-19</td>
+                        </tr>
+                        <tr>
+                            <td>10310</td>
+                            <td>77</td>
+                            <td>1996-09-20</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>CustomerID</th>
+                            <th>CustomerName</th>
+                            <th>ContactName</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Alfreds Futterkiste</td>
+                            <td>Maria Anders</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Centro comercial Moctezuma</td>
+                            <td>Francisco Chang</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Ernst Handel</td>
+                            <td>Roland Mendel</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="mt-3">RIGHT JOIN Example</h3>
+
+                <div class="code">
+                    <p>SELECT Orders.OrderID, Customers.CustomerName</p>
+                    <p>FROM Orders</p>
+                    <p>RIGHT JOIN Customers ON Orders.CustomerID = Customers.CustomerID;</p>
+                </div>
+
+                <!-- Result of the query -->
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>OrderID</th>
+                            <th>CustomerName</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10308</td>
+                            <td>Centro comercial Moctezuma</td>
+                        </tr>
+                        <tr>
+                            <td>10309</td>
+                            <td>Ernst Handel</td>
+                        </tr>
+                        <tr>
+                            <td>NULL</td>
+                            <td>Ernst Handel</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
         </div>
     </div>
 
