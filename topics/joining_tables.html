@@ -21,8 +21,8 @@
             <a href="database.html" class="topic">Database</a>
             <a href="basic_sql_queries.html" class="topic">Basic SQL Queries</a>
             <a href="#" class="topic ">Filtering Data</a>
-            <a href="working_with_functions.html" class="topic active">Working with Functions</a>
-            <a href="joining_tables.html" class="topic">Joining Tables</a>
+            <a href="working_with_functions.html" class="topic">Working with Functions</a>
+            <a href="joining_tables.html" class="topic active">Joining Tables</a>
             <a href="sub_queries.html" class="topic">Subqueries</a>
             <a href="modifying_data.html" class="topic">Modifying Data</a>
             <a href="advanced_queries.html" class="topic">Advanced Queries</a>
@@ -355,20 +355,132 @@
 
             </div>
 
+            <div id="full_join" class="id_topic">
+                <h2 class="title">FULL JOIN</h2>
+                <p class="definition
+                ">The FULL JOIN keyword returns all records when there is a match in either left (table1) or right
+                    (table2)
+                    table records.</p>
+                <!-- Tables -->
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>OrderID</th>
+                            <th>CustomerID</th>
+                            <th>OrderDate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10308</td>
+                            <td>2</td>
+                            <td>1996-09-18</td>
+                        </tr>
+                        <tr>
+                            <td>10309</td>
+                            <td>37</td>
+                            <td>1996-09-19</td>
+                        </tr>
+                        <tr>
+                            <td>10310</td>
+                            <td>77</td>
+                            <td>1996-09-20</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>CustomerID</th>
+                            <th>CustomerName</th>
+                            <th>ContactName</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Alfreds Futterkiste</td>
+                            <td>Maria Anders</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Centro comercial Moctezuma</td>
+                            <td>Francisco Chang</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Ernst Handel</td>
+                            <td>Roland Mendel</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="mt-3">FULL
+                    JOIN Example</h3>
+
+                <div class="code">
+                    <p>SELECT Orders.OrderID, Customers.CustomerName</p>
+                    <p>FROM Orders</p>
+                    <p>FULL JOIN Customers ON Orders.CustomerID = Customers.CustomerID;</p>
+                </div>
+
+                <!-- Result of the query -->
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>OrderID</th>
+                            <th>CustomerName</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10308</td>
+                            <td>Centro comercial Moctezuma</td>
+                        </tr>
+                        <tr>
+                            <td>10309</td>
+                            <td>Ernst Handel</td>
+                        </tr>
+                        <tr>
+                            <td>10310</td>
+                            <td>Island Trading</td>
+                        </tr>
+                        <tr>
+                            <td>NULL</td>
+                            <td>Laughing Bacchus Winecellars</td>
+                        </tr>
+                        <tr>
+                            <td>NULL</td>
+                            <td>Magazzini Alimentari Riuniti</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Note why the result is NULL for the OrderID 10310. It is because there is no matching CustomerID in the -->
+                <p class="note mt-3">Note that the FULL JOIN keyword returns all records when there is a match in
+                    either
+                    left (table1) or right (table2) table records.
+                    The result is NULL from the side where there is no match.</p>
+                </p>
+
+
+
+
+            </div>
         </div>
-    </div>
 
-    <div class="right-content-navigator rightnav">
-        <div class="navigator">
-            <a href="#" class="nav-link active">INNER JOIN</a>
-            <a href="#" class="nav-link">LEFT JOIN</a>
-            <a href="#" class="nav-link">RIGHT JOIN</a>
-            <a href="#" class="nav-link">FULL JOIN</a>
+        <div class="right-content-navigator rightnav">
+            <div class="navigator">
+                <a href="#" class="nav-link active">INNER JOIN</a>
+                <a href="#" class="nav-link">LEFT JOIN</a>
+                <a href="#" class="nav-link">RIGHT JOIN</a>
+                <a href="#" class="nav-link">FULL JOIN</a>
+            </div>
         </div>
-    </div>
 
 
-    <script src="../js/script.js"></script>
+        <script src="../js/script.js"></script>
 
 </body>
 
