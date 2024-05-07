@@ -22,8 +22,8 @@
             <a href="basic_sql_queries.html" class="topic">Basic SQL Queries</a>
             <a href="#" class="topic ">Filtering Data</a>
             <a href="working_with_functions.html" class="topic">Working with Functions</a>
-            <a href="joining_tables.html" class="topic active">Joining Tables</a>
-            <a href="sub_queries.html" class="topic">Subqueries</a>
+            <a href="joining_tables.html" class="topic">Joining Tables</a>
+            <a href="sub_queries.html" class="topic active">Subqueries</a>
             <a href="modifying_data.html" class="topic">Modifying Data</a>
             <a href="advanced_queries.html" class="topic">Advanced Queries</a>
             <a href="transactions_and_locking.html" class="topic">Transactions and Locking</a>
@@ -142,6 +142,171 @@
 
                 </div>
             </div>
+
+            <div id="multiple_row_sub_query" class="id_topic">
+                <div class="question">
+                    <h2>Multiple Row Subquery</h2>
+                    <p>Multiple row subquery is a subquery that returns more than one row to the outer SQL statement. It
+                        is used with comparison operators such as IN, ANY, ALL, etc. The subquery must be enclosed in
+                        parentheses.</p>
+                    <p>Multiple row subquery can be used in SELECT, WHERE, and FROM clauses.</p>
+                    <p>Example:</p>
+
+                    <!-- Table -->
+                    <table class="table">
+                        <tr>
+                            <th>employee_id</th>
+                            <th>first_name</th>
+                            <th>last_name</th>
+                            <th>department_id</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Jane</td>
+                            <td>Doe</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Mike</td>
+                            <td>Smith</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>David</td>
+                            <td>Johnson</td>
+                            <td>3</td>
+                        </tr>
+                    </table>
+
+                    <div class="code mt-3">
+                        <p>
+                            SELECT first_name, last_name
+                        </p>
+                        <p>
+                            FROM employees
+                        </p>
+                        <p>
+                            WHERE department_id IN (SELECT department_id FROM departments WHERE department_name = 'IT');
+                        </p>
+                    </div>
+
+                    <!-- result of the query -->
+                    <table class="table">
+                        <tr>
+                            <th>first_name</th>
+                            <th>last_name</th>
+                        </tr>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                        </tr>
+                        <tr>
+                            <td>Mike</td>
+                            <td>Smith</td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+
+            <div id="correlated_sub_querry" class="id_topic">
+                <div class="question">
+                    <h2>Correlated Subquery</h2>
+                    <p>Correlated subquery is a subquery that references a column from a table in the outer SQL
+                        statement.
+                        It is used with comparison operators such as =, <,>, >=, <=, <>, IN, BETWEEN, etc. The subquery
+                                must be enclosed in parentheses.</p>
+                    <p>Correlated subquery can be used in SELECT, WHERE, and FROM clauses.</p>
+                    <p>Example:</p>
+
+                    <!-- Table -->
+                    <table class="table">
+                        <tr>
+                            <th>employee_id</th>
+                            <th>first_name</th>
+                            <th>last_name</th>
+                            <th>salary</th>
+                            <th>department_id</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>50000</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Jane</td>
+                            <td>Doe</td>
+                            <td>60000</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Mike</td>
+                            <td>Smith</td>
+                            <td>70000</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>David</td>
+                            <td>Johnson</td>
+                            <td>80000</td>
+                            <td>3</td>
+                        </tr>
+                    </table>
+
+                    <div class="code mt-3">
+                        <p>
+                            SELECT first_name, last_name, salary
+                        </p>
+                        <p>
+                            FROM employees e
+                        </p>
+                        <p>
+                            WHERE salary > (SELECT AVG(salary) FROM employees WHERE department_id = e.department_id);
+                        </p>
+                    </div>
+
+                    <!-- result of the query -->
+                    <table class="table">
+                        <tr>
+                            <th>first_name</th>
+                            <th>last_name</th>
+                            <th>salary</th>
+                        </tr>
+                        <tr>
+                            <td>Mike</td>
+                            <td>Smith</td>
+                            <td>70000</td>
+                        </tr>
+                        <tr>
+                            <td>David</td>
+                            <td>Johnson</td>
+                            <td>80000</td>
+                        </tr>
+                    </table>
+
+                    <p class="mt-3">In the above example, the subquery returns the average salary of employees in the
+                        same
+                        department as the employee in the outer query. The main query returns the first name, last name,
+                        and salary of employees whose salary is greater than the average salary of employees in the same
+                        department.</p>
+
+                </div>
+
+            </div>
+
         </div>
 
         <div class="right-content-navigator rightnav">
