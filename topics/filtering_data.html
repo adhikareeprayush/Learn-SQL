@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
     <div class="sidenav">
         <div class="logo">
             <a href="../index.html" class="header">Learn SQL</a>
@@ -56,7 +55,7 @@
 
     <div class="content">
         <div class="subtopics">
-            <div id="introduction" class="id_topic">
+            <div id="comparison_operators" class="id_topic">
                 <div class="question">
                     <h2>Using Comparison Operators</h2>
                     <p>
@@ -101,9 +100,283 @@
                     </table>
                     </p>
 
+                    <p class="mt-3">Let's Take an example...</p>
+
+                    <!-- Employees table -->
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>employee_id</th>
+                                <th>first_name</th>
+                                <th>last_name</th>
+                                <th>salary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>John</td>
+                                <td>Doe</td>
+                                <td>10000</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Jane</td>
+                                <td>Doe</td>
+                                <td>12000</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Mike</td>
+                                <td>Smith</td>
+                                <td>15000</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>David</td>
+                                <td>Johnson</td>
+                                <td>8000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    <p class="mt-3">
+                        The following query retrieves all employees whose salary is greater than 10000.
+                    </p>
+
+                    <div class="code">
+                        <p>SELECT employee_id, first_name, last_name, salary</p>
+                        <p> FROM employees</p>
+                        <p>WHERE salary > 10000;</p>
+                    </div>
+
+                    <!-- Result of the query -->
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>employee_id</th>
+                                <th>first_name</th>
+                                <th>last_name</th>
+                                <th>salary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2</td>
+                                <td>Jane</td>
+                                <td>Doe</td>
+                                <td>12000</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Mike</td>
+                                <td>Smith</td>
+                                <td>15000</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
 
                 </div>
+            </div>
+
+            <div id="logincal_operators" class="id_topic">
+
+                <div class="question">
+                    <h2>Using Logical Operators</h2>
+                    <p>
+                        Logical operators are used to combine two or more conditions. The following table lists the
+                        logical operators available in SQL.
+                    </p>
+                    <p>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Operator</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AND</td>
+                                <td>True if all conditions separated by AND are true</td>
+                            </tr>
+                            <tr>
+                                <td>OR</td>
+                                <td>True if any condition separated by OR is true</td>
+                            </tr>
+                            <tr>
+                                <td>NOT</td>
+                                <td>True if the condition is false</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </p>
+
+                    <p class="mt-3">Let's Take an example...</p>
+
+                    <!-- Employees table -->
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>employee_id</th>
+                                <th>first_name</th>
+                                <th>last_name</th>
+                                <th>salary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>John</td>
+                                <td>Doe</td>
+                                <td>10000</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Jane</td>
+                                <td>Doe</td>
+                                <td>12000</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Mike</td>
+                                <td>Smith</td>
+                                <td>15000</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>David</td>
+                                <td>Johnson</td>
+                                <td>8000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="mt-3">
+                        The following query retrieves all employees whose salary is greater than 10000 and whose first
+                        name is Jane.
+                    </p>
+
+                    <div class="code">
+                        <p>SELECT employee_id, first_name, last_name, salary</p>
+                        <p> FROM employees</p>
+                        <p>WHERE salary > 10000 AND first_name = 'Jane';</p>
+                    </div>
+
+
+                    <!-- Result of the query -->
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>employee_id</th>
+                                <th>first_name</th>
+                                <th>last_name</th>
+                                <th>salary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2</td>
+                                <td>Jane</td>
+                                <td>Doe</td>
+                                <td>12000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div id="between_and_in_operators" class="id_topic">
+
+                <div class="question">
+                    <h2>Using BETWEEN and IN Operators</h2>
+                    <p>
+                        The BETWEEN operator is used to select values within a range. The following query retrieves all
+                        employees whose salary is between 10000 and 15000.
+                    </p>
+
+                    <div class="code">
+                        <p>SELECT employee_id, first_name, last_name, salary</p>
+                        <p> FROM employees</p>
+                        <p>WHERE salary BETWEEN 10000 AND 15000;</p>
+                    </div>
+
+                    <!-- Result of the query -->
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>employee_id</th>
+                                <th>first_name</th>
+                                <th>last_name</th>
+                                <th>salary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>John</td>
+                                <td>Doe</td>
+                                <td>10000</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Jane</td>
+                                <td>Doe</td>
+                                <td>12000</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Mike</td>
+                                <td>Smith</td>
+                                <td>15000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="mt-3">
+                        The IN operator is used to specify multiple values in a WHERE clause. The following query
+                        retrieves all employees whose first name is either Jane or Mike.
+                    </p>
+
+                    <div class="code">
+                        <p>SELECT employee_id, first_name, last_name, salary</p>
+                        <p> FROM employees</p>
+                        <p>WHERE first_name IN ('Jane', 'Mike');</p>
+                    </div>
+
+                    <!-- Result of the query -->
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>employee_id</th>
+                                <th>first_name</th>
+                                <th>last_name</th>
+                                <th>salary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2</td>
+                                <td>Jane</td>
+                                <td>Doe</td>
+                                <td>12000</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Mike</td>
+                                <td>Smith</td>
+                                <td>15000</td>
+                            </tr>
+                    </table>
+                </div>
+
+
             </div>
         </div>
     </div>

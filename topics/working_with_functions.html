@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/tutorial.css">
+    <link rel="stylesheet" href="../css/default.css">
+    <title>Learn SQL | Filtering Data</title>
+</head>
+
+<body>
+    <div class="sidenav">
+        <div class="logo">
+            <a href="../index.html" class="header">Learn SQL</a>
+            <p>With <a href="#">Me😊</a></p>
+        </div>
+        <div class="topics">
+            <a href="database.html" class="topic">Database</a>
+            <a href="basic_sql_queries.html" class="topic">Basic SQL Queries</a>
+            <a href="#" class="topic active">Filtering Data</a>
+            <a href="working_with_functions.html" class="topic">Working with Functions</a>
+            <a href="joining_tables.html" class="topic">Joining Tables</a>
+            <a href="sub_queries.html" class="topic">Subqueries</a>
+            <a href="modifying_data.html" class="topic">Modifying Data</a>
+            <a href="advanced_queries.html" class="topic">Advanced Queries</a>
+            <a href="transactions_and_locking.html" class="topic">Transactions and Locking</a>
+            <a href="indexing_and_optimization.html" class="topic">Indexing and Optimization</a>
+            <a href="sql_best_practices.html" class="topic">SQL Best Practices</a>
+        </div>
+        <div class="social-icons">
+            <!-- linkedin -->
+            <a href="https://www.linkedin.com/in/prayushadhikari/" class="social-link">
+                <i class="bi bi-linkedin"></i>
+            </a>
+            <!-- github -->
+            <a href="https://www.github.com/adhikareeprayush" class="social-link">
+                <i class="bi bi-github"></i>
+            </a>
+            <!-- twitter -->
+            <a href="https://www.twitter.com/prayushadhikari" class="social-link">
+                <i class="bi bi-twitter"></i>
+            </a>
+            <!-- instagram -->
+            <a href="https://www.instagram.com/prayushadhikari" class="social-link">
+                <i class="bi bi-instagram"></i>
+            </a>
+
+
+        </div>
+
+    </div>
+
+    <div class="content">
+        <div class="subtopics">
+            <div id="aggregate_functions" class="id_topic">
+                <h2 class="title">Aggregate Functions</h2>
+                <p>Aggregate functions are used to perform calculations on a set of values and return a single value. It
+                    is
+                    often used with the GROUP BY clause to calculate the aggregate values for each group.</p>
+                <p>Here are some of the most commonly used aggregate functions:</p>
+                <ul>
+                    <li>- <strong>COUNT()</strong>: returns the number of rows in a group.</li>
+                    <li>- <strong>SUM()</strong>: returns the sum of all values in a group.</li>
+                    <li>- <strong>AVG()</strong>: returns the average of all values in a group.</li>
+                    <li>- <strong>MIN()</strong>: returns the minimum value in a group.</li>
+                    <li>- <strong>MAX()</strong>: returns the maximum value in a group.</li>
+                </ul>
+
+                <!-- Table for example -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>product_id</th>
+                            <th>product_name</th>
+                            <th>unit_price</th>
+                            <th>quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Apple</td>
+                            <td>1.00</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Orange</td>
+                            <td>0.50</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Banana</td>
+                            <td>0.75</td>
+                            <td>15</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="mt-3">Let's see some examples of using aggregate functions:</p>
+
+                <h3 class="mt-3">Example 1: Using COUNT()</h3>
+                <p>Count the number of products in the table.</p>
+                <div class="code">
+                    <p>SELECT COUNT(*) AS total_products<br></p>
+                    <p>FROM products;</p>
+                </div>
+
+                <!-- Result of the query -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>total_products</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>3</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="mt-3">Example 2: Using SUM()</h3>
+                <p>Calculate the total price of all products in the table.</p>
+                <div class="code">
+                    <p>SELECT SUM(unit_price * quantity) AS total_price<br></p>
+                    <p>FROM products;</p>
+                </div>
+
+                <!-- Result of the query -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>total_price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>25.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="mt-3">Example 3: Using AVG()</h3>
+                <p>Calculate the average unit price of all products in the table.</p>
+                <div class="code">
+                    <p>SELECT AVG(unit_price) AS avg_price<br></p>
+                    <p>FROM products;</p>
+                </div>
+
+                <!-- Result of the query -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>avg_price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0.75</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="mt-3">Example 4: Using MIN()</h3>
+                <p>Find the minimum unit price of all products in the table.</p>
+                <div class="code">
+                    <p>SELECT MIN(unit_price) AS min_price<br></p>
+                    <p>FROM products;</p>
+                </div>
+
+                <!-- Result of the query -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>min_price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0.50</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="mt-3">Example 5: Using MAX()</h3>
+                <p>Find the maximum unit price of all products in the table.</p>
+
+                <div class="code">
+                    <p>SELECT MAX(unit_price) AS max_price<br></p>
+                    <p>FROM products;</p>
+                </div>
+
+                <!-- Result of the query -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>max_price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="scalar_function" class="id_topic">
+                <h2 class="title">Scalar Functions</h2>
+                <p>Scalar functions are functions that return a single value based on the input values. They can be used
+                    in
+                    SELECT statements, WHERE clauses, ORDER BY clauses, and other parts of SQL queries.</p>
+                <p>Here are some of the most commonly used scalar functions:</p>
+                <ul>
+                    <li>- <strong>UPPER()</strong>: converts a string to uppercase.</li>
+                    <li>- <strong>LOWER()</strong>: converts a string to lowercase.</li>
+                    <li>- <strong>LENGTH()</strong>: returns the length of a string.</li>
+                    <li>- <strong>CONCAT()</strong>: concatenates two or more strings.</li>
+                    <li>- <strong>SUBSTRING()</strong>: extracts a substring from a string.</li>
+                    <li>- <strong>ROUND()</strong>: rounds a number to a specified number of decimal places.</li>
+                </ul>
+
+                <p>Let's see some examples of using scalar functions:</p>
+
+                <h3 class="mt-3">Example 1: Using UPPER()</h3>
+                <p>Convert the product names to uppercase.</p>
+                <div class="code">
+                    <p>SELECT UPPER(product_name) AS product_name_upper<br></p>
+                    <p>FROM products;</p>
+                </div>
+
+                <!-- Result of the query -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>product_name_upper</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>APPLE</td>
+                        </tr>
+                        <tr>
+                            <td>ORANGE</td>
+                        </tr>
+                        <tr>
+                            <td>BANANA</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="mt-3">Example 2: Using LENGTH()</h3>
+                <p>Find the length of the product names.</p>
+                <div class="code">
+                    <p>SELECT product_name, LENGTH(product_name) AS name_length<br></p>
+                    <p>FROM products;</p>
+                </div>
+
+                <!-- Result of the query -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>product_name</th>
+                            <th>name_length</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Apple</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>Orange</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>Banana</td>
+                            <td>6</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="mt-3">Example 3: Using CONCAT()</h3>
+                <p>Concatenate the product names and unit prices.</p>
+
+                <div class="code">
+                    <p>SELECT CONCAT(product_name, ' - $', unit_price) AS product_info<br></p>
+                    <p>FROM products;</p>
+                </div>
+
+                <!-- Result of the query -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>product_info</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Apple - $1.00</td>
+                        </tr>
+                        <tr>
+                            <td>Orange - $0.50</td>
+                        </tr>
+                        <tr>
+                            <td>Banana - $0.75</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="mt-3">Example 4: Using ROUND()</h3>
+                <p>Round the unit prices to two decimal places.</p>
+
+                <div class="code">
+                    <p>SELECT product_name, ROUND(unit_price, 2) AS rounded_price<br></p>
+                    <p>FROM products;</p>
+                </div>
+
+                <!-- Result of the query -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>product_name</th>
+                            <th>rounded_price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Apple</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>Orange</td>
+                            <td>0.50</td>
+                        </tr>
+                        <tr>
+                            <td>Banana</td>
+                            <td>0.75</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="mt-3">
+                    Example 5: Using SUBSTRING()
+                </h3>
+                <p>Extract the first three characters of the product names.</p>
+
+                <div class="code">
+                    <p>SELECT product_name, SUBSTRING(product_name, 1, 3) AS short_name<br></p>
+                    <p>FROM products;</p>
+                </div>
+
+                <!-- Result of the query -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>product_name</th>
+                            <th>short_name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Apple</td>
+                            <td>App</td>
+                        </tr>
+                        <tr>
+                            <td>Orange</td>
+                            <td>Ora</td>
+                        </tr>
+                        <tr>
+                            <td>Banana</td>
+                            <td>Ban</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="mt-3">
+                    Example 6: Using ROUND()
+                </h3>
+                <p>Round the unit prices to two decimal places.</p>
+
+                <div class="code">
+                    <p>SELECT product_name, ROUND(unit_price, 2) AS rounded_price<br></p>
+                    <p>FROM products;</p>
+                </div>
+
+                <!-- Result of the query -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>product_name</th>
+                            <th>rounded_price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Apple</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>Orange</td>
+                            <td>0.50</td>
+                        </tr>
+                        <tr>
+                            <td>Banana</td>
+                            <td>0.75</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+
+
+
+
+            </div>
+
+            <div id="date_time_function" class="id_topic">
+                <h2 class="title">Date and Time functions</h2>
+                <p>SQL provides a variety of functions to work with date and time values. These functions can be used to
+                    extract parts of a date or time, perform calculations on dates, and format date and time values.</p>
+                <p>Here are some of the most commonly used date and time functions:</p>
+                <ul>
+                    <li>- <strong>CURRENT_DATE</strong>: returns the current date.</li>
+                    <li>- <strong>CURRENT_TIME</strong>: returns the current time.</li>
+                    <li>- <strong>CURRENT_TIMESTAMP</strong>: returns the current date and time.</li>
+                    <li>- <strong>DATE()</strong>: extracts the date part of a datetime value.</li>
+                    <li>- <strong>TIME()</strong>: extracts the time part of a datetime value.</li>
+                    <li>- <strong>YEAR()</strong>: extracts the year part of a date or datetime value.</li>
+                    <li>- <strong>MONTH()</strong>: extracts the month part of a date or datetime value.</li>
+                    <li>- <strong>DAY()</strong>: extracts the day part of a date or datetime value.</li>
+                    <li>- <strong>HOUR()</strong>: extracts the hour part of a time or datetime value.</li>
+                    <li>- <strong>MINUTE()</strong>: extracts the minute part of a time or datetime value.</li>
+                    <li>- <strong>SECOND()</strong>: extracts the second part of a time or datetime value.</li>
+                    <li>- <strong>DATE_FORMAT()</strong>: formats a date or time value.</li>
+                </ul>
+
+                <p>Let's see some examples of using date and time functions:</p>
+
+                <h3 class="mt-3">Example 1: Using CURRENT_DATE</h3>
+                <p>Get the current date.</p>
+                <div class="code">
+                    <p>SELECT CURRENT_DATE AS current_date;</p>
+                </div>
+
+                <!-- Result of the query -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>current_date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2022-01-01</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="mt-3">Example 2: Using CURRENT_TIME</h3>
+                <p>Get the current time.</p>
+                <div class="code">
+                    <p>SELECT CURRENT_TIME AS current_time;</p>
+                </div>
+
+                <!-- Result of the query -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>current_time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12:00:00</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="mt-3">Example 3: Using CURRENT_TIMESTAMP</h3>
+                <p>Get the current date and time.</p>
+
+                <div class="code">
+                    <p>SELECT CURRENT_TIMESTAMP AS current_datetime;</p>
+                </div>
+
+                <!-- Result of the query -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>current_datetime</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2022-01-01 12:00:00</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="mt-3">Example 4: Using DATE()</h3>
+                <p>Extract the date part of a datetime value.</p>
+
+                <div class="code">
+                    <p>SELECT order_date, DATE(order_date) AS order_date_only<br></p>
+                    <p>FROM orders;</p>
+                </div>
+
+                <!-- Result of the query -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>order_date</th>
+                            <th>order_date_only</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2022-01-01 12:00:00</td>
+                            <td>2022-01-01</td>
+                        </tr>
+                        <tr>
+                            <td>2022-01-02 13:00:00</td>
+                            <td>2022-01-02</td>
+                        </tr>
+                        <tr>
+                            <td>2022-01-03 14:00:00</td>
+                            <td>2022-01-03</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="mt-3">Example 5: Using DATE_FORMAT()</h3>
+                <p>Format the order dates in 'YYYY-MM-DD' format.</p>
+
+                <div class="code">
+                    <p>SELECT order_date, DATE_FORMAT(order_date, '%Y-%m-%d') AS formatted_date<br></p>
+                    <p>FROM orders;</p>
+                </div>
+
+                <!-- Result of the query -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>order_date</th>
+                            <th>formatted_date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2022-01-01 12:00:00</td>
+                            <td>2022-01-01</td>
+                        </tr>
+                        <tr>
+                            <td>2022-01-02 13:00:00</td>
+                            <td>2022-01-02</td>
+                        </tr>
+                        <tr>
+                            <td>2022-01-03 14:00:00</td>
+                            <td>2022-01-03</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="mt-3">Example 6: Using YEAR()</h3>
+                <p>Extract the year part of a date or datetime value.</p>
+
+                <div class="code">
+                    <p>SELECT order_date, YEAR(order_date) AS order_year<br></p>
+                    <p>FROM orders;</p>
+                </div>
+
+
+                <!-- Result of the query -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>order_date</th>
+                            <th>order_year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2022-01-01 12:00:00</td>
+                            <td>2022</td>
+                        </tr>
+                        <tr>
+                            <td>2022-01-02 13:00:00</td>
+                            <td>2022</td>
+                        </tr>
+                        <tr>
+                            <td>2022-01-03 14:00:00</td>
+                            <td>2022</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="mt-3">Example 7: Using MONTH()</h3>
+                <p>Extract the month part of a date or datetime value.</p>
+
+                <div class="code">
+                    <p>SELECT order_date, MONTH(order_date) AS order_month<br></p>
+                    <p>FROM orders;</p>
+                </div>
+
+                <!-- Result of the query -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>order_date</th>
+                            <th>order_month</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2022-01-01 12:00:00</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>2022-01-02 13:00:00</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>2022-01-03 14:00:00</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="mt-3">Example 8: Using DAY()</h3>
+                <p>Extract the day part of a date or datetime value.</p>
+
+                <div class="code">
+                    <p>SELECT order_date, DAY(order_date) AS order_day<br></p>
+                    <p>FROM orders;</p>
+                </div>
+
+                <!-- Result of the query -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>order_date</th>
+                            <th>order_day</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2022-01-01 12:00:00</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>2022-01-02 13:00:00</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>2022-01-03 14:00:00</td>
+                            <td>3</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="mt-3">Example 9: Using HOUR()</h3>
+                <p>Extract the hour part of a time or datetime value.</p>
+
+                <div class="code">
+                    <p>SELECT order_time, HOUR(order_time) AS order_hour<br></p>
+                    <p>FROM orders;</p>
+                </div>
+
+                <!-- Result of the query -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>order_time</th>
+                            <th>order_hour</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12:00:00</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td>13:00:00</td>
+                            <td>13</td>
+                        </tr>
+                        <tr>
+                            <td>14:00:00</td>
+                            <td>14</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="mt-3">Example 10: Using MINUTE()</h3>
+                <p>Extract the minute part of a time or datetime value.</p>
+
+                <div class="code">
+                    <p>SELECT order_time, MINUTE(order_time) AS order_minute<br></p>
+                    <p>FROM orders;</p>
+                </div>
+
+                <!-- Result of the query -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>order_time</th>
+                            <th>order_minute</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12:00:00</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>13:00:00</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>14:00:00</td>
+                            <td>0</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="mt-3">Example 11: Using SECOND()</h3>
+                <p>Extract the second part of a time or datetime value.</p>
+
+                <div class="code">
+                    <p>SELECT order_time, SECOND(order_time) AS order_second<br></p>
+                    <p>FROM orders;</p>
+                </div>
+
+                <!-- Result of the query -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>order_time</th>
+                            <th>order_second</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12:00:00</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>13:00:00</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>14:00:00</td>
+                            <td>0</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2 class="mt-3">
+                    Using DATE_FORMAT()
+                </h2>
+                <p>Format the order dates in 'YYYY-MM-DD' format.</p>
+
+                <div class="code">
+                    <p>SELECT order_date, DATE_FORMAT(order_date, '%Y-%m-%d') AS formatted_date<br></p>
+                    <p>FROM orders;</p>
+                </div>
+
+                <!-- Result of the query -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>order_date</th>
+                            <th>formatted_date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2022-01-01 12:00:00</td>
+                            <td>2022-01-01</td>
+                        </tr>
+                        <tr>
+                            <td>2022-01-02 13:00:00</td>
+                            <td>2022-01-02</td>
+                        </tr>
+                        <tr>
+                            <td>2022-01-03 14:00:00</td>
+                            <td>2022-01-03</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="right-content-navigator rightnav">
+        <div class="navigator">
+            <a href="#" class="nav-link active">Aggregate Functions</a>
+            <a href="#" class="nav-link">Scalar Functions</a>
+            <a href="#" class="nav-link">Date and Time functions</a>
+        </div>
+    </div>
+
+
+    <script src="../js/script.js"></script>
+
+</body>
+
+</html>
