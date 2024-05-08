@@ -27,8 +27,8 @@
             <a href="modifying_data.html" class="topic">Modifying Data</a>
             <a href="advanced_queries.html" class="topic">Advanced Queries</a>
             <a href="transactions_and_locking.html" class="topic ">Transactions and Locking</a>
-            <a href="indexing_and_optimization.html" class="topic active">Indexing and Optimization</a>
-            <a href="sql_best_practices.html" class="topic">SQL Best Practices</a>
+            <a href="indexing_and_optimization.html" class="topic ">Indexing and Optimization</a>
+            <a href="sql_best_practices.html" class="topic active">SQL Best Practices</a>
         </div>
         <div class="social-icons">
             <!-- linkedin -->
@@ -55,153 +55,59 @@
 
     <div class="content">
         <div class="subtopics">
-            <div id="indexes_in_sql" class="id_topic">
+            <div id="qriting_efficient_queries" class="id_topic">
                 <div class="question">
-                    <h2>Indexes in SQL</h2>
-                    <p>Indexes are used to retrieve data from the database more quickly than otherwise. The users cannot
-                        see the indexes, they are just used to speed up searches/queries.</p>
-
-                    <h3>Types of Indexes</h3>
-                    <p>There are three types of indexes:</p>
+                    <h2>Qriting Efficient Queries</h2>
+                    <p>Writing efficient queries is important for the performance of your database. Here are some tips
+                        to write efficient queries:</p>
                     <ul>
-                        <li>- Unique Index</li>
-                        <li>- Clustered Index</li>
-                        <li>- Non-Clustered Index</li>
+                        <li>- Use indexes: Indexes help to speed up the query process by making the search faster. You
+                            can create indexes on columns that are frequently used in the WHERE clause.</li>
+                        <li>- Avoid using SELECT *: Instead of selecting all columns, only select the columns that you
+                            need. This will reduce the amount of data that needs to be processed.</li>
+                        <li>- Use JOINs wisely: Use INNER JOINs instead of OUTER JOINs whenever possible. INNER JOINs
+                            are faster because they only return rows that have matching values in both tables.</li>
+                        <li>- Avoid using subqueries: Subqueries can be slow and inefficient. Try to rewrite the query
+                            using JOINs or other methods.</li>
+                        <li>- Use LIMIT: If you only need a limited number of rows, use the LIMIT clause to restrict the
+                            number of rows returned by the query.</li>
                     </ul>
 
-                    <h3>Unique Index</h3>
-                    <p>Unique Indexes are used not just for performance but for data integrity as well, as they do not
-                        allow the field to have duplicate values if the column is unique indexed.</p>
+                    <!-- Example -->
+                    <h3>Example</h3>
 
-                    <h3>Clustered Index</h3>
-                    <p>Clustered Indexes are the indexes that physically sort the data rows in the table on the basis of
-                        their key values. There can be only one clustered index on a table.</p>
-
-                    <h3>Non-Clustered Index</h3>
-                    <p>Non-Clustered Indexes are the indexes where the logical order of the index does not match the
-                        physical stored order of the rows on disk. The leaf layer of a non-clustered index does not
-                        consist
-                        of the data pages. Instead, the leaf nodes contain index rows.</p>
-
-                </div>
-            </div>
-
-            <div id="query_optimization_techniques" class="id_topic">
-                <div class="question">
-                    <h2>Query Optimization Techniques</h2>
-                    <p>Query optimization is the process of selecting the most efficient way to execute a query. The
-                        process of optimization is a complex one, as it involves making decisions based on the available
-                        statistics and the query plan. The query optimizer is the component of the database management
-                        system that performs this optimization.</p>
-
-                    <h3>Types of Query Optimization Techniques</h3>
-                    <p>There are several query optimization techniques:</p>
+                    <p>Suppose you have a table named <code>employees</code> with the following columns:</p>
                     <ul>
-                        <li>- Join Elimination</li>
-                        <li>- Indexing</li>
-                        <li>- Query Rewriting</li>
-                        <li>- Query Decomposition</li>
-                        <li>- Query Compilation</li>
-                        <li>- Query Execution</li>
+                        <li>- <code>id</code></li>
+                        <li>- <code>name</code></li>
+                        <li>- <code>department</code></li>
+                        <li>- <code>salary</code></li>
                     </ul>
 
-                    <h3>Join Elimination</h3>
-                    <p>Join elimination is the process of removing joins from a query that are not necessary for the
-                        query to return the correct results. This can be done by using indexes or by rewriting the query
-                        to eliminate the join.</p>
-
-                    <h3>Indexing</h3>
-                    <p>Indexing is the process of creating indexes on the columns that are frequently used in queries.
-                        This can speed up the query by allowing the database to quickly locate the rows that match the
-                        query criteria.</p>
-
-                    <h3>Query Rewriting</h3>
-                    <p>Query rewriting is the process of rewriting a query to make it more efficient. This can involve
-                        changing the order of operations in the query or rewriting the query to use a different
-                        algorithm.</p>
-
-                    <h3>Query Decomposition</h3>
-                    <p>Query decomposition is the process of breaking a complex query into smaller, simpler queries that
-                        can be executed more efficiently. This can be done by using subqueries or by rewriting the query
-                        to eliminate unnecessary operations.</p>
-
-                    <h3>Query Compilation</h3>
-                    <p>Query compilation is the process of compiling a query into an executable form that can be
-                        executed by the database engine. This can involve optimizing the query plan and generating
-                        efficient code to execute the query.</p>
-
-                    <h3>Query Execution</h3>
-                    <p>Query execution is the process of executing the compiled query and returning the results to the
-                        user. This can involve reading data from disk, processing the data, and returning the results to
-                        the user.</p>
+                    <p>To select the names of all employees in the <code>IT</code> department with a salary greater than
+                        <code>50000</code>, you can write the following query:
+                    </p>
 
 
+                    <div class="code">
+                        <p>
+                            SELECT name FROM employees WHERE department = 'IT' AND salary > 50000;
+                        </p>
+                    </div>
 
+                    <p>This query will return the names of all employees in the <code>IT</code> department with a salary
+                        greater than <code>50000</code>.</p>
                 </div>
             </div>
-
-            <div id="normalization_and_denormalization" class="id_topic">
-                <div class="question">
-                    <h2>Normalization and Denormalization</h2>
-                    <p>Normalization is the process of organizing data in a database. This includes creating tables and
-                        establishing relationships between those tables according to rules designed both to protect the
-                        data and to make the database more flexible by eliminating redundancy and inconsistent
-                        dependency.</p>
-
-                    <h3>Types of Normalization</h3>
-                    <p>There are several types of normalization:</p>
-                    <ul>
-                        <li>- First Normal Form (1NF)</li>
-                        <li>- Second Normal Form (2NF)</li>
-                        <li>- Third Normal Form (3NF)</li>
-                        <li>- Boyce-Codd Normal Form (BCNF)</li>
-                        <li>- Fourth Normal Form (4NF)</li>
-                        <li>- Fifth Normal Form (5NF)</li>
-                    </ul>
-
-                    <h3>First Normal Form (1NF)</h3>
-                    <p>First Normal Form (1NF) is the first step in the normalization process. It requires that the
-                        table
-                        have a primary key and that each column in the table contain only atomic values.</p>
-
-                    <h3>Second Normal Form (2NF)</h3>
-                    <p>Second Normal Form (2NF) requires that the table be in 1NF and that all non-key attributes be
-                        fully
-                        functionally dependent on the primary key.</p>
-
-                    <h3>Third Normal Form (3NF)</h3>
-                    <p>Third Normal Form (3NF) requires that the table be in 2NF and that all non-key attributes be
-                        non-transitively dependent on the primary key.</p>
-
-                    <h3>Boyce-Codd Normal Form (BCNF)</h3>
-                    <p>Boyce-Codd Normal Form (BCNF) requires that the table be in 3NF and that all determinants be
-                        candidate keys.</p>
-
-                    <h3>Fourth Normal Form (4NF)</h3>
-                    <p>Fourth Normal Form (4NF) requires that the table be in BCNF and that there be no multi-valued
-                        dependencies.</p>
-
-                    <h3>Fifth Normal Form (5NF)</h3>
-                    <p>Fifth Normal Form (5NF) requires that the table be in 4NF and that there be no join dependencies
-                        on any subset of the candidate key.</p>
-
-                    <h3>Denormalization</h3>
-                    <p>Denormalization is the process of adding redundant data to a database to improve read
-                        performance.
-                        This can involve adding redundant columns to a table or duplicating data in multiple tables.</p>
-
-                </div>
-            </div>
-
         </div>
     </div>
 
 
     <div class="right-content-navigator rightnav">
         <div class="navigator">
-            <a href="#" class="nav-link active">Indexes in SQL</a>
-            <a href="#" class="nav-link">Query Optimization Techniques</a>
-            <a href="#" class="nav-link">Normalization and Denormalization</a>
+            <a href="#" class="nav-link active">Qriting Efficient Queries</a>
+            <a href="#" class="nav-link">Avoiding SQL Injections</a>
+            <a href="#" class="nav-link">Database Security Practices</a>
         </div>
     </div>
 
