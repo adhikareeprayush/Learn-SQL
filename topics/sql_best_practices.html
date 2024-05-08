@@ -99,6 +99,108 @@
                         greater than <code>50000</code>.</p>
                 </div>
             </div>
+
+            <div id="avoiding_sql_injections" class="id_topic">
+                <div class="question">
+                    <h2>Avoiding SQL Injections</h2>
+                    <p>SQL injection is a common hacking technique that allows an attacker to execute malicious SQL
+                        statements in your database. Here are some tips to avoid SQL injections:</p>
+                    <ul>
+                        <li>- Use parameterized queries: Parameterized queries use placeholders for input values, which
+                            are then replaced with the actual values at runtime. This prevents SQL injection attacks
+                            because the input values are treated as data, not as SQL code.</li>
+                        <li>- Validate input data: Validate input data to ensure that it meets the expected format and
+                            length. This can help prevent SQL injection attacks by rejecting input that contains
+                            malicious code.</li>
+                        <li>- Use stored procedures: Stored procedures can help prevent SQL injection attacks by
+                            encapsulating the SQL code and only allowing access to specific procedures.</li>
+                        <li>- Escape input data: If you cannot use parameterized queries, escape input data by using
+                            functions like <code>mysqli_real_escape_string()</code> in PHP or <code>escape()</code> in
+                            Python.</li>
+                    </ul>
+
+                    <!-- Example -->
+                    <h3>Example</h3>
+
+                    <p>Suppose you have a login form where users enter their username and password. To prevent SQL
+                        injection attacks, you can use parameterized queries to validate the input data:</p>
+
+                    <div class="code">
+                        <p>
+                            $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
+                            $stmt->bind_param("ss", $username, $password);
+                            $stmt->execute();
+                        </p>
+                    </div>
+
+                    <p>This query uses placeholders <code>?</code> for the username and password values, which are then
+                        replaced with the actual values using the <code>bind_param()</code> function. This prevents SQL
+                        injection attacks by treating the input values as data, not as SQL code.</p>
+                </div>
+            </div>
+
+            <div id="database_security_practices" class="id_topic">
+                <div class="question">
+                    <h2>Database Security Practices</h2>
+                    <p>Database security is essential to protect your data from unauthorized access, data breaches, and
+                        other security threats. Here are some best practices for database security:</p>
+                    <ul>
+                        <li>- Use strong passwords: Use strong, unique passwords for your database accounts to prevent
+                            unauthorized access.</li>
+                        <li>- Encrypt sensitive data: Encrypt sensitive data to protect it from unauthorized access. Use
+                            encryption algorithms like AES or RSA to encrypt data at rest and in transit.</li>
+                        <li>- Implement access controls: Implement access controls to restrict access to sensitive data
+                            based on user roles and permissions. Use role-based access control (RBAC) to assign
+                            permissions to users based on their roles.</li>
+                        <li>- Regularly update software: Keep your database software up to date with the latest security
+                            patches and updates to protect against known vulnerabilities.</li>
+                        <li>- Monitor database activity: Monitor database activity to detect and respond to suspicious
+                            behavior, unauthorized access, and other security incidents.</li>
+                    </ul>
+
+                    <!-- Example -->
+                    <h3>Example</h3>
+
+                    <p>Suppose you have a table named <code>users</code> with the following columns:</p>
+                    <ul>
+                        <li>- <code>id</code></li>
+                        <li>- <code>username</code></li>
+                        <li>- <code>password</code></li>
+                        <li>- <code>role</code></li>
+                    </ul>
+
+                    <p>To implement access controls, you can create a role-based access control system that assigns
+                        permissions to users based on their roles:</p>
+
+                    <div class="code">
+                        <p>
+                            CREATE TABLE roles (
+                            id INT PRIMARY KEY,
+                            role_name VARCHAR(50) NOT NULL
+                            );
+
+                            CREATE TABLE permissions (
+                            id INT PRIMARY KEY,
+                            permission_name VARCHAR(50) NOT NULL
+                            );
+
+                            CREATE TABLE role_permissions (
+                            role_id INT,
+                            permission_id INT,
+                            FOREIGN KEY (role_id) REFERENCES roles(id),
+                            FOREIGN KEY (permission_id) REFERENCES permissions(id)
+                            );
+                        </p>
+                    </div>
+
+                    <p>This query creates three tables <code>roles</code>, <code>permissions</code>, and
+                        <code>role_permissions</code> to implement role-based access control. The <code>roles</code>
+                        table
+                        stores the roles, the <code>permissions</code> table stores the permissions, and the
+                        <code>role_permissions</code> table assigns permissions to roles.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 
